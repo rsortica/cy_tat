@@ -1,0 +1,46 @@
+# Testes automatizados com Cypress 
+👋 Seja bem-vindo(a)!
+
+
+## Features:
+
+- Configurar um projeto Cypress
+- Navegar em páginas locais e remotas
+- Mapear elementos em aplicações web
+- Realizar _upload_ de arquivos
+- Realizar as mais diversas verificações de resultados esperados
+- Criar comandos customizados
+- Interagir com links que abrem em outra aba do navegador
+- Rodar testes simulando as dimensões de um dispositivo móvel
+- Resolver os mesmos problemas de diferentes formas, conhecendo a [API do Cypress](https://docs.cypress.io/api/table-of-contents)
+- Executar os testes em um _pipeline_ de integração contínua sempre que mudanças ocorrerem no código da aplicação (ou dos testes)
+- Criar uma documentação mínima este projeto de testes automatizados
+
+## Tecnologias utilizadas:
+
+* [Cypress](https://xmind.app)
+* Jscript, Java
+* Outras: webbrowser, git, npm
+
+## Como executar:
+
+### **1. Instale `Xmind` na sua máquina, por meio [deste link](https://xmind.app/download/)**
+
+### **2. Faça um clone [desse repositório](https://github.com/rsortica/mindMap) na sua máquina:**
+
+* Crie uma pasta no seu computador para esse programa, recomendo colocar o nome **Roadmaps**
+* Abra o `git bash` ou `terminal` dentro dessa pasta
+* Copie a [URL](https://github.com/rsortica/mindMap.git) do repositório
+* Digite `git clone <URL copiada>` e pressione `enter`
+
+
+### **3. Preencha os caminhos dos programas na sua máquina:**
+* Pesquise os caminhos dos seguintes programas executáveis na sua máquina
+* Caso queira adicionar ou deletar algum programa, faça isso utilizando o padrão de escrita
+
+### **4. Execute o programa pelo terminal:**
+* Acesse a página Xmind, neste [link](https://xmind.app/signin/?next=https://xmind.app/account/)
+* Crie sua conta
+* Importe a pasta criada em seu computador
+* Execute o programa
+* Não esqueça de salvar suas alterações
