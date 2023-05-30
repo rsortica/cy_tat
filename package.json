@@ -1,0 +1,21 @@
+{
+  "name": "cypress",
+  "version": "1.0.0",
+  "description": "Projeto de estudos de automação de testes com Cypress",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "test command": "cypress run"
+  },
+  "keywords": [
+    "Testing",
+    "Cypress.io",
+    "automation",
+    "e2e"
+  ],
+  "author": "Ro Sortica <kodcore@gmail.com>",
+  "license": "ISC",
+  "devDependencies": {
+    "cypress": "^12.13.0"
+  }
+}
