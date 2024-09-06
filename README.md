@@ -1,10 +1,16 @@
-# Testes automatizados com Cypress 
-👋 Seja bem-vindo(a)!
+# Automação de Testes da Central de Atendimento TAT com Cypress 
 
+Este repositório contém testes automatizados para o **[CAC TAT](https://cac-tat.s3.eu-central-1.amazonaws.com/index.html)**, simulador de uma plataforma de "Central de Atendimento ao Cliente" da escola TAT. Esta automação foi desenvolvida utilizando o framework [Cypress](https://www.cypress.io/). 
 
-## Features:
+Os testes automatizados cobrem diferentes cenários, como casos de sucesso e falhas esperadas, visando garantir que as principais funcionalidades estejam executando corretamente.
 
-* Configurar um projeto Cypress;
+## Cenários 
+
+- **Cadastro de Usuário**: Verifica se é possível criar novas contas com diferentes tipos de dados.
+- **Login**: Testa a autenticação de usuários com credenciais válidas e inválidas.
+- **Transferências**: Simula transferências entre contas, invalidando a conta destinatária.
+- **Funcionalidades**: Confirma o funcionamento de botões, seletores e pop-ups.
+
 * Navegar em páginas locais e remotas;
 * Mapear elementos em aplicações web;
 * Realizar _upload_ de arquivos;
@@ -14,34 +20,26 @@
 * Rodar testes simulando as dimensões de um dispositivo móvel;
 * Resolver os mesmos problemas de diferentes formas, conhecendo a [API do Cypress](https://docs.cypress.io/api/table-of-contents);
 * Executar os testes em um _pipeline_ de integração contínua sempre que mudanças ocorrerem no código da aplicação (ou dos testes);
-* Criar uma documentação mínima este projeto de testes automatizados.
 
-## Tecnologias utilizadas:
+  
+## Tecnologias Utilizadas
 
-* [Cypress](https://docs.cypress.io/guides/overview/why-cypress)
-* Jscript, Java
-* Outras: webbrowser, git, npm
+- [Cypress](https://docs.cypress.io/guides/overview/why-cypress): Framework de testes automatizados E2E.
+- Node.js: Ambiente de execução para JavaScript.
+  
 
-## Como executar:
+## Como executar os testes:
 
-### **1. Instale [Git](https://git-scm.com/) na sua máquina**
+1. Faça clone deste projeto para sua máquina local.
+2. Certifique-se de que o Cypress está instalado.
+3. Navegue até o diretório do projeto.
+4. Execute os testes com o comando:
 
-### **2. Instale [Node.js](https://nodejs.org/en/) na sua máquina**
->
-> **Obs:** Ao instalar o Node.js o npm é instalado junto. 🎉
->
+   ```bash
+   npx cypress run
 
-### **3. Verifique a versão `npm` na sua máquina**
+## Observação🚨
 
-### **4. Utilize navegador [Google Chrome](https://www.google.com/intl/pt_br/chrome/)**
+#### - A aplicação não conta com um BANCO DE DADOS, todas as informações são armazenadas em memória local.
 
-### **5. Utilize IDE [Visual Studio Code](https://code.visualstudio.com/) ou alguma outra IDE de sua preferência**
 
-### **6. Faça um clone [desse repositório](https://github.com/rsortica/mindMap) na sua máquina:**
-
-* Crie uma pasta no seu computador para esse programa, recomendo colocar o nome **cypress**
-* Abra o `git bash` ou `terminal` dentro dessa pasta
-* Copie a [URL](https://github.com/rsortica/cypress.git) do repositório
-* Digite `git clone <URL copiada>` e pressione `enter`
-
-Clique [aqui](./_the-app_.md) que eu vou te apresentar a aplicação em teste.
