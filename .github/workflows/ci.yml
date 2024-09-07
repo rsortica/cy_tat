@@ -1,0 +1,23 @@
+name: End-to-end tests
+
+# define gatilhos para workflow
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+ 
+    # define etapas para o trabalho, incluindo checkout do codigo, configuracao do Node js, instalacao de dependencies and execution of Cypress tests
+
+jobs:  
+# define um trabalho 'cypress-up' que roda em uma maquina ubuntu
+  cypress-run:    
+    runs-on: ubuntu-22.04    
+    steps:      
+      - name: Checkout        
+        uses: actions/checkout@v4     
+      # Instal npm dependencies, cache them correctly and run all Cypress tests
+      - name: Cypress run 
+        uses: cypress-io/github-action@v6

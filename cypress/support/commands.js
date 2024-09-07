@@ -1,3 +1,12 @@
+Cypress.Commands.add('fillMandatoryFieldsAndSubmit', function(){
+    cy.get('#firstName').type('firstName')
+    cy.get('#lastName').type('lastName')
+    cy.get('#email').type('test@test.com')
+    cy.get('#phone').type('9999999999')
+    cy.get('#open-text-area').type('testes')
+    cy.contains('button', 'Enviar').click()
+})
+
 // ***********************************************
 // This example commands.js shows you how to
 // create various custom commands and overwrite

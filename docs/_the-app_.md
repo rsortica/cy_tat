@@ -1,12 +1,10 @@
 # Conhecendo a aplicação em teste
 
-Antes de começarmos a configurar o Cypress e escrever scripts de testes automatizados, deixa eu te apresentar a aplicação que vamos testar.
-
-A aplicação se chama Central de Atendimento ao Cliente TAT - [**CAC TAT**](https://cac-tat.s3.eu-central-1.amazonaws.com/index.html) - e foi desenvolvida usando HTML, CSS e JavaScript.
+A aplicação Central de Atendimento ao Cliente TAT - [**CAC TAT**](https://cac-tat.s3.eu-central-1.amazonaws.com/index.html), é um formulário para simular o envio de mensagens numa central de atendimento ao cliente para uma escola e foi desenvolvida usando HTML, CSS e JavaScript.
 
 ## Funcionalidades da aplicação
 
-A aplicação CAC TAT é um formulário para simular o envio de mensagens à uma central de atendimento ao cliente.
+Simular o envio de mensagens à uma central de atendimento ao cliente.
 
 ### Campos obrigatórios
 
@@ -44,10 +42,11 @@ Ao clicar no link [Política de privacidade](https://cac-tat.s3.eu-central-1.ama
 
 > Além disso, quando o formulário é enviado com sucesso, todos os campos voltam ao seu estado padrão.
 
-## Teu desafio
+## Projeto de Testes 🧑‍🏫
 
-Durante o curso de testes automatizados com Cypress (básico) da Escola TAT, te desafio a testar todas as funcionalidades da aplicação CAC TAT, além de configurar um pipeline de integração contínua que executa tais testes sempre que mudanças forem enviadas ao GitHub.
+- Criar cenário de testes para todas as funcionalidades da aplicação CAC TAT.
+- Configurar um pipeline de integração contínua que executa tais testes sempre que mudanças forem enviadas ao repositório no GitHub.
 
-Espero que esteja tão ansioso(a) para começar como estou para te guiar ao longo do caminho! 🧑‍🏫
+Espero que esteja tão ansioso(a) para começar como estou para te guiar ao longo do caminho! 
 
-Vá para a [aula 0](./0.md) para fazer o setup do projeto de testes.
+Prossiga para a [setup](./0.md) do projeto de testes.
