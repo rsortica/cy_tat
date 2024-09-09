@@ -100,95 +100,112 @@ describe('Central de Atendimento ao Cliente TAT', () => {
       .should('have.value', 'blog')
   } )
 
-// cenario 13: marca o tipo de atendimento "Feedback" - campo do tipo radio
-it('marca o tipo de atendimento "Feedback"', () => {
-  cy.get('input[type="radio"][value="feedback"]') // Corrige a aspas no seletor
-    .check()                                // Marca o rádio
-    .should('be.checked');                  // Verifica se o rádio está marcado
-});
-
-// cenario 14: marca cada tipo de atendimento
-it('marca cada tipo de atendimento', () => {
-  const tiposDeAtendimento = ['ajuda', 'elogio', 'feedback']; // Exemplo de valores
-
-  tiposDeAtendimento.forEach(tipo => {
-    cy.get(`input[type="radio"][value="${tipo}"]`).check();
-    cy.get(`input[type="radio"][value="${tipo}"]`).should('be.checked');
+  // cenario 13: marca o tipo de atendimento "Feedback" - campo do tipo radio
+  it('marca o tipo de atendimento "Feedback"', () => {
+    cy.get('input[type="radio"][value="feedback"]') // Corrige a aspas no seletor
+      .check()                                // Marca o rádio
+      .should('be.checked');                  // Verifica se o rádio está marcado
   });
-});
 
-// cenario 15: marca ambos checkboxes, depois desmarca o último
-it('marca ambos checkboxes, depois desmarca o último', () => {
-  // Valores dos checkboxes com base no atributo value
-  const checkboxes = ['email', 'phone']; //valores reais
+  // cenario 14: marca cada tipo de atendimento
+  it('marca cada tipo de atendimento', () => {
+    const tiposDeAtendimento = ['ajuda', 'elogio', 'feedback']; // Exemplo de valores
 
-  // Marca ambos os checkboxes
-  checkboxes.forEach(opcao => {
-    cy.get(`input[type="checkbox"][value="${opcao}"]`)
-      .should('exist') // Garante que o checkbox existe
-      .check(); // Marca o checkbox
-    cy.get(`input[type="checkbox"][value="${opcao}"]`)
-      .should('be.checked'); // Verifica se está marcado
+    tiposDeAtendimento.forEach(tipo => {
+      cy.get(`input[type="radio"][value="${tipo}"]`).check();
+      cy.get(`input[type="radio"][value="${tipo}"]`).should('be.checked');
+    });
+  });
+
+  // cenario 15: marca ambos checkboxes, depois desmarca o último
+  it('marca ambos checkboxes, depois desmarca o último', () => {
+    // Valores dos checkboxes com base no atributo value
+    const checkboxes = ['email', 'phone']; //valores reais
+
+    // Marca ambos os checkboxes
+    checkboxes.forEach(opcao => {
+      cy.get(`input[type="checkbox"][value="${opcao}"]`)
+        .should('exist') // Garante que o checkbox existe
+        .check(); // Marca o checkbox
+      cy.get(`input[type="checkbox"][value="${opcao}"]`)
+        .should('be.checked'); // Verifica se está marcado
+    });
   });
 
   // Desmarca o último checkbox
-  const ultimoCheckbox = checkboxes[checkboxes.length - 1];
-  cy.get(`input[type="checkbox"][value="${ultimoCheckbox}"]`)
-    .should('be.visible') // Garante que o checkbox está visível
-    .uncheck(); // Desmarca o checkbox
-  cy.get(`input[type="checkbox"][value="${ultimoCheckbox}"]`)
-    .should('not.be.checked'); // Verifica se está desmarcado
-});
-
-
-// cenario 15: marca ambos checkboxes, depois desmarca o último
-it('marca ambos checkbox, logo apos, desmarca o ultimo selecionado', () =>{
-  cy.get('input[type="checkbox"]').check().should('be.checked').last().uncheck().should('not.be.checked')
-})
-
-// cenario 16: refatorar cenario que exibe mensagem de erro quando o telefone se torna obrigatório mas não é preenchido antes do envio do formulário, alterando comando  `.click()`, para `.check()`
-it('exibir mensagem de erro para campo obrigatorio', () => {
-  cy.get('#firstName').type('firstName');
-  cy.get('#lastName').type('lastName');
-  cy.get('#email').type('test@test.com');
-
-  // Utiliza .check() para marcar o checkbox
-  cy.get('#phone-checkbox').check();
-
-  cy.get('#open-text-area').type('testes');
-  cy.contains('button', 'Enviar').click();
-
-  // Verifica se a mensagem de erro está visível
-  cy.get('.error').should('be.visible');
-});
-
-// cenario 17: seleciona um arquivo da pasta fixtures
-it('seleciona um arquivo da pasta fixtures e verifica o nome', () => {
-  cy.get('input[type="file"]')
-    .should('not.have.value')
-    .selectFile('./cypress/fixtures/example.json')
-    .should(function($input){
-      expect($input[0].files[0].name).to.equal('example.json')
-    })
-
-  /*
-// cenario 17: seleciona um arquivo da pasta fixtures
-it.only('seleciona um arquivo da pasta fixtures e verifica o nome', () => {
-  // Caminho do arquivo na pasta fixtures
-  const arquivo = 'example.json';
-
-  // Seleciona o arquivo e verifica o nome do arquivo
-  cy.get('input[type="file"]')
-    .should('not.have.value') // Verifica que o input está vazio antes da seleção
-    .selectFile(`cypress/fixtures/${arquivo}`, { force: true }) // Seleciona o arquivo
-    .should('have.value', `C:\\fakepath\\${arquivo}`) // Verifica o valor do input
-    .then(($input) => {
-      // Verifica o nome do arquivo no objeto files
-      const file = $input[0].files[0];
-      expect(file.name).to.equal(arquivo); // Verifica o nome do arquivo
+  it('desmarca o ultimo checkbox', () => {
+    const ultimoCheckbox = checkboxes[checkboxes.length - 1];
+    cy.get(`input[type="checkbox"][value="${ultimoCheckbox}"]`)
+      .should('be.visible') // Garante que o checkbox está visível
+      .uncheck(); // Desmarca o checkbox
+    cy.get(`input[type="checkbox"][value="${ultimoCheckbox}"]`)
+      .should('not.be.checked'); // Verifica se está desmarcado
     });
-});
-*/
-});
+
+
+  // cenario 15: marca ambos checkboxes, depois desmarca o último
+  it('marca ambos checkbox, logo apos, desmarca o ultimo selecionado', () =>{
+    cy.get('input[type="checkbox"]').check().should('be.checked').last().uncheck().should('not.be.checked')
+    });
+  
+
+  // cenario 16: refatorar cenario que exibe mensagem de erro quando o telefone se torna obrigatório mas não é preenchido antes do envio do formulário, alterando comando  `.click()`, para `.check()`
+  it('exibir mensagem de erro para campo obrigatorio', () => {
+    cy.get('#firstName').type('firstName');
+    cy.get('#lastName').type('lastName');
+    cy.get('#email').type('test@test.com');
+
+    // Utiliza .check() para marcar o checkbox
+    cy.get('#phone-checkbox').check();
+
+    cy.get('#open-text-area').type('testes');
+    cy.contains('button', 'Enviar').click();
+
+    // Verifica se a mensagem de erro está visível
+    cy.get('.error').should('be.visible');
+  });
+
+  // cenario 17: seleciona um arquivo da pasta fixtures
+  it('seleciona um arquivo da pasta fixtures e verifica o nome', () => {
+    cy.get('input[type="file"]')
+      .should('not.have.value')
+      .selectFile('./cypress/fixtures/example.json')
+      .should(function($input){
+        expect($input[0].files[0].name).to.equal('example.json');
+    })
+  });
+    
+  // cenario 18: seleciona um arquivo simulando um drag-and-drop
+  it('seleciona um arquivo simulando um drag-and-drop', () => {
+    cy.get('input[type="file"]')
+      .should('not.have.value')
+      .selectFile('./cypress/fixtures/example.json', {action: 'drag-drop'})
+      .should(function($input){
+        expect($input[0].files[0].name).to.equal('example.json');
+      })
+  });
+
+  //cenario 19: selecionar arquivo atribuido por alias
+  it('seleciona arquivo utilizando fixture atribuida por alias', () => {
+    cy.fixture('example').as('sampleFile')
+    cy.get('input[type="file"]')
+      .selectFile('@sampleFile')
+      .should(function($input){
+        expect($input[0].files[0].name).to.equal('example.json');
+      })
+  })
+  //cenario 20: abrir Politica de Privacidade sem clicar no link
+  it('abrir politica de privacidade em outra aba sem click', () => {
+    cy.get('#privacy a').should('have.attr', 'target', '_blank')
+  })
+
+  //cenario 21: abrir politica de privacidade com click
+  it('acessa pagina politica de privacidade removendo o target e clicando no link', () =>{
+    cy.get('#privacy a')
+      .invoke('removeAttr', 'target')
+      .click()
+
+    cy.contains('Talking About Testing').should('be.visible')
+  })
 
 });
